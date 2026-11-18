@@ -13,7 +13,7 @@ export const CONFIG = {
   venue: 'قرية حواش',
   address: 'شارع الليبي فيصل',
   mapsUrl: 'https://maps.app.goo.gl/jZTieNbBFidfFj8i9', // Venue pin on Google Maps
-  siteUrl: 'https://ahmedpilot.github.io/wedding-invitation/', // Public address of the site (used by the Share button)
+  siteUrl: 'https://wedding-invitation-yassin.ahmedkeejab7.workers.dev/', // Public address of the site (used by the Share button)
   musicFile: 'assets/wedding-background.wav',
   verse:
     '﴿ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ ﴾'

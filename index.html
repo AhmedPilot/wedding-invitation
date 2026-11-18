@@ -34,12 +34,14 @@
   </head>
   <body>
     <a class="skip-link" href="#details">الانتقال إلى تفاصيل الدعوة</a>
-    <div class="opening" aria-hidden="true">
+    <div class="opening" role="dialog" aria-label="دعوة عقد قران يس وخديجة">
       <svg viewBox="0 0 100 90" width="80" height="72">
         <path d="M50 79 13 42C-11 15 26-8 50 19C74-8 111 15 87 42Z" />
       </svg>
       <p class="opening-names">يس ♡ خديجة</p>
       <p>لحظات ونشارككم فرحتنا...</p>
+      <button id="open-invite" class="open-invite" type="button" hidden>افتح الدعوة <span aria-hidden="true">♡</span></button>
+      <p class="open-hint" hidden>مع الموسيقى ♫</p>
     </div>
     <header class="masthead">
       <a href="#" class="monogram" aria-label="دعوة يس وخديجة">ي <span>♡</span> خ</a

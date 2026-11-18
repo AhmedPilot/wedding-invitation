@@ -101,10 +101,30 @@ function firstInteraction(event) {
   if (!event.target.closest('.music-controls')) void playMusic();
 }
 document.addEventListener('click', firstInteraction);
-// Try to start the music right away; most browsers block this until the first tap, so the click above is the fallback.
-audio.play().then(syncMusic, () => {});
-if (new URLSearchParams(location.search).get('autoplay') === '1') {
+
+// Opening gate: the "افتح الدعوة" tap is the user gesture browsers require before playing sound.
+const gate = document.querySelector('.opening');
+const openButton = document.getElementById('open-invite');
+function closeGate() {
+  gate.classList.add('closing');
+  document.removeEventListener('click', firstInteraction);
+  gate.addEventListener('animationend', () => gate.remove(), { once: true });
+  setTimeout(() => gate.isConnected && gate.remove(), 900);
+}
+document.documentElement.classList.add('gate');
+openButton.hidden = false;
+gate.querySelector('.open-hint').hidden = false;
+openButton.focus({ preventScroll: true });
+openButton.addEventListener('click', () => {
   void playMusic();
+  closeGate();
+});
+// Some browsers allow sound straight away; if so, play and open without waiting for the tap.
+audio.play().then(() => {
+  syncMusic();
+  setTimeout(closeGate, 1800);
+}, () => {});
+if (new URLSearchParams(location.search).get('autoplay') === '1') {
   history.replaceState(null, '', location.pathname + location.hash);
 }
 music.addEventListener('click', () => {
